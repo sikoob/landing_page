@@ -37,18 +37,16 @@ p{
     right: 0;
     }
 
-/*Main*/
 .cover{
-    position: absolute;
+    position: fixed;
     background-color: #ffaaaa;
     opacity: 0.35;
+    min-width: 100%;
+    min-height: 100%;
     left: 0;
     top: 0;
     bottom: 0;
     right: 0;
-    display: flex;
-    align-content: center;
-    justify-content: center;
     z-index: 1;
 }
 
@@ -89,12 +87,19 @@ p{
     font-size: 20px;
 }
 
+.dropdown-toogle {
+    position: absolute;
+    height: 3rem;
+    right: 0;
+    left: 0;
+}
+
 .dropdown-menu{
     background-color: #E5E5E5;
     height: 1px;
     margin: 8px 15px;
     right: 0;
-    left: auto;
+    left: 0;
     padding: 0;
     z-index: 9000;
     position: absolute;
@@ -104,4 +109,12 @@ p{
     opacity: 1;
 }
 
+/* Eingabemaske */
 
+.form-control {
+    position: absolute;
+    width:auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
