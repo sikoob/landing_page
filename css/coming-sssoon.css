@@ -1,30 +1,28 @@
+/* Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+
 /*Text*/
 h1 {
+    font-family: 'Lato', sans-serif;
     font-size: 52px;
+    font-weight: 900;
 }
 
 h2 {
-    font-size: 36px;
-}
-h3 {
-    font-size: 28px;
-    margin: 20px 0 10px;
+    font-family: 'Lato', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.33);
+    text-align: center;
+    margin-top: 50px;
+    min-height: 140px;   
 }
 
-h4 {
-    font-size: 22px;
-}
-h5 {
-    font-size: 16px;
-}
-h6 {
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-p{
-    font-size: 16px;
-    line-height: 1.6180em;
+h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 26px;
+    font-weight: 400;
 }
 
 
@@ -100,25 +98,17 @@ p{
     z-index: 5;
 }
 
-.catchphrase {
-    font-size: 28px;
-    color: #FFFFFF;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.33);
-    text-align: center;
-    margin-top: 50px;
-    min-height: 140px;   
-}
-
 /* Eingabemaske */
 
 .row {
     display: flex;
     flex-wrap:wrap;
-    align-items:center;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
 }
 
 .form-control {
+    font-family: 'Lato', sans-serif;
     width: auto;
     background-color: #ffffff;
     background-image: none;
@@ -129,6 +119,28 @@ p{
     font-size: 14px;
     line-height: 1.428571429;
     color: #555555;
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px;
+    margin-bottom: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.btn-warning {
+    color: #ffffff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
 }
 
 
