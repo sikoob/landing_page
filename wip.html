@@ -7,10 +7,10 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     
-    <title>Landing Page Projekt </title>
+    <title>Landing Page Projekt</title>
     
     <link href="css/bootstrap.css" rel="stylesheet" />
-	<link href="css/coming-sssoon.css" rel="stylesheet" />  
+	<link href="./css/style.css" rel="stylesheet" />  
   
 </head>
 
@@ -18,12 +18,9 @@
 <nav class="navbar navbar-transparent navbar-fixed-top" role="navigation">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
+    <div class="navigation__arrow">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
       </button>
     </div>
 
@@ -46,34 +43,26 @@
   </div>
 </nav>
 
-<div class="main" style="background-image: url('images/video_bg.jpg')">
-    <video id="video_background" preload="auto" autoplay loop muted src="./videos/loop.mp4" type="video/mp4"> </video>
-    
-    <div class="cover"></div>
+<div class="video__fallback">
+    <video class="video__background" preload="auto" autoplay loop muted src="./videos/loop.mp4" type="video/mp4"> </video>
+    </div>
+    <div class="video__cover"></div>
 
     <div class="container">
-        <h1>Der ewige Kreis</h1>
+        <h1 class="content__heading">Der ewige Kreis</h1>
         
-        <div class="content">
-            <h2>Lasst uns loslegen</h2>
-            <div class="subscribe">
-                <h3>Bleiben Sie auf dem Laufenden.</h3>
-                <div class="row">
-                        <form class="form-inline" role="form">
-                          <div class="form-group">
-                            <label class="sr-only" for="exampleInputEmail2">Email Adresse</label>
-                            <input type="email" class="form-control transparent" placeholder="Ihre Mail lautet ...">
-                          </div>
-                          <button type="submit" class="btn btn-warning">Loslegen</button>
-                        </form>
-                </div>
+        <div class="content__container">
+            <h2 class="content__sub">Lasst uns loslegen</h2>
+            <p class="content__paragraph">Bleiben Sie auf dem Laufenden</p>
+            <div class="subscribe__container">
+              <form class="form-inline" role="form">
+                <input type="email" class="subscribe__form" placeholder="Geben Sie Ihre Mail an ...">
+                <button type="submit" class="subscribe__button">Loslegen</button>
+              </form>
             </div>
         </div>
     </div>
     <div class="footer">
     </div>
- </div>
 </body>
-<!--   <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script> -->
 </html>
