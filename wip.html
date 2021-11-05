@@ -9,7 +9,6 @@
     
     <title>Landing Page Projekt</title>
     
-    <link href="css/bootstrap.css" rel="stylesheet" />
 	<link href="./css/style.css" rel="stylesheet" />  
   
 </head>
@@ -21,10 +20,10 @@
       <p>Deutsch</p>
     </div>
     <ul>
-      <li class="landing__navigation-item landing__navigation-german">
+      <li class="landing__navigation-german landing__navigation-item ">
         <a class="landing__navigation-link" href="#">Deutsch</a>
       </li>
-      <li class="landing__navigation-item landing__navigation-english">
+      <li class="landing__navigation-english landing__navigation-item ">
         <a class="landing__navigation-link" href="#">Englisch</a>
       </li>
     </ul>
@@ -45,11 +44,18 @@
             <div class="subscribe__container">
               <form class="form-inline" role="form">
                 <input type="email" class="subscribe__form" placeholder="Geben Sie Ihre Mail an ...">
-                <button type="submit" class="subscribe__button">Loslegen</button>
+                <a href="#submit-modal" class="button">Loslegen</a>
               </form>
             </div>
         </div>
     </div>
+    <section class="submit-modal" id="submit-modal">
+      <div class="submit-modal__content">
+          <a class="submit-modal__close" href="#">x</a>
+          <h3 class="submit-modal__heading">Vielen Dank für Ihr Interesse!</h3>
+          <p class="submit-modal__paragraph">Sie haben sich registriert.</p>
+      </div> 
+  </section>
     <div class="footer">
     </div>
 </body>

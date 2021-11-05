@@ -2,6 +2,24 @@
 
 * {
     font-family: 'Lato', sans-serif;
+    font-size: 62.5%;
+
+    @media (min-width: 100em) {             //Browserfenster min. 1600px breit
+        font-size: 75%;                    //font-size in HTML steuert alle rem-Angaben in Child --> wird alles reingezoomt
+      }
+    
+      @media (min-width: 133em) {
+          font-size: 80%;
+      }
+    
+      @media (min-width: 166em) {
+          font-size: 85%;
+      }
+    
+      @media (max-width:$breakpoint-xxs) {
+          font-size: 50%;
+      }
+
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -84,6 +102,7 @@
     font-weight: 900;
     color: #FFEAAA;
     text-shadow: 0 0 1rem rgba(255,234,170,0.75);
+    margin-bottom: 4rem;
 }
 
 .content__sub {
@@ -92,20 +111,22 @@
     color: #d4a76a;
     text-shadow: 0 0 1rem rgba(212,167,106,0.75);
     text-align: center;
-    margin-top: 50px;
-    min-height: 140px;   
+    margin-top: 3.125rem;
+    min-height: 8.75rem;  
+    margin-bottom: 4rem; 
 }
 
 .content__paragraph {
     font-size: 3rem;
     font-weight: 400;
     color: #D4A76A;
-    text-shadow: 0 0 1rem rgba(212,167,106,0.75);
+    text-shadow: 0 0 4rem rgba(212,167,106,1);
+    margin-bottom: 4rem;
 }
 
 /*Button*/
 
-.subscribe__button {
+.button {
     display: inline-block;
     font-size: 1.7rem;
     font-weight: 700;
@@ -114,6 +135,7 @@
     background-color: #D4A76A;
     color: white;
     text-align: center;
+    text-decoration: none;
     white-space: nowrap;
     cursor: pointer;
     border: 1px solid transparent;
@@ -123,7 +145,7 @@
     margin-bottom: 0;
 }
 
-.subscribe__button:hover {
+.button:hover {
     background-color: #FFEAAA;
     color: #123652;
 }
@@ -151,16 +173,15 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    z-index: 2;
+    z-index: 4;
 }
 
 .landing__navigation-selected {
     cursor: pointer;
     color: white;
-    font-size: 2rem;
+    font-size: 3rem;
     display: flex;
     justify-content: space-between;
-    line-height: 2rem;
     width: 11rem;
 }
 
@@ -202,6 +223,7 @@
     width: 13rem;
     display: block;
     padding: 5px 10px;
+    text-decoration: none;
 }
 
 .landing__navigation-link:hover {
@@ -232,6 +254,145 @@
     background-position: center center;
     vertical-align: middle;
     margin-right: 1rem;
+}
+
+/*Modal*/
+
+.submit-modal {
+    display: none;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+
+    z-index: 20000;
+}
+
+.submit-modal:target {                  /*wenn URL angesteuert wird*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit-modal::before {     /*stellt sicher, das ANzeigeanimation nur läuft, wenn Modal auch wirklich geholt wird*/
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    animation-name: booking-modal--fade-in;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+
+    background-color: rgba(0,0,0,0.85);
+}
+
+@supports(backdrop-filter: blur(4rem)) {
+    .submit-modal::before {
+    background-color: rgba(0,0,0,0.15);
+    backdrop-filter: blur(4rem);
+    }
+}
+
+.submit-modal__content {
+    position: relative;
+    width: 45rem;   
+    height: 23rem;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0 0 1rem black;
+    border: 0.1rem solid black;
+    border-radius: 0.25rem;
+    padding-left: min(100vw, 16.875); 
+
+    background-color: rgb(148, 148, 148);
+
+    animation-name: booking-modal__content--fade-in;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: backwards;     /*damit Eigenschaft bvon 0% schon direkt angezeigt wird*/
+}
+
+@media (max-width: 36em) {
+    .submit-modal__content {
+    padding-left: 1rem;
+    background-image: none;
+    height: 27rem;
+    }
+}
+
+.submit-modal__close {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 1rem;
+    height: 1rem;
+    text-decoration: none;
+    color: transparent;
+    filter: drop-shadow(0 0 0.5rem rgba(0,0,0,0.5));
+    background-image:       /*zum Designen des x*/
+        linear-gradient(45deg, transparent 44.8%, #FFEAAA 45.2%, #FFEAAA 54.8%, transparent 55.2%),
+        linear-gradient(-45deg, transparent 44.8%, #FFEAAA 45.2%, #FFEAAA  54.8%, transparent 55.2%);
+
+    border-radius: 5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.submit-modal__close:hover {
+    opacity: 0.8;
+}
+
+.submit-modal__heading {
+    color: #FFEAAA;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 0 0 0.1rem #D4A76A;
+    margin-bottom: 0.35rem;
+}
+
+.submit-modal__paragraph{
+    color: #FFEAAA;
+    font-size: 2rem;
+    font-weight: 400;
+    text-shadow: 0 0 0.1rem #D4A76A;
+    margin-top: 2rem;
+    margin-bottom: 0.35rem;
+}
+
+
+@keyframes booking-modal--fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes booking-modal__content--fade-in {
+    0% {
+        transform: translate(0, calc(-50vh - 50%));
+    }
+    100% {
+        transform: translate(0, 0);
+    }
 }
 
 
