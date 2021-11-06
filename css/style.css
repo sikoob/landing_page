@@ -176,12 +176,31 @@
     width: 11rem;
 }
 
+.landing__navigation-selected__english{
+    cursor: pointer;
+    color: white;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    width: 11rem;
+}
+
 .landing__navigation-selected::before {
     content: "";
     display: block;
     width: 2rem;
     height: 2rem;
     background-image: url(../images/flags/DE.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.landing__navigation-selected__english::before {
+    content: "";
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background-image: url(../images/flags/US.png);
     background-repeat: no-repeat;
     background-position: center center;
 }
@@ -525,8 +544,6 @@
     .submit-modal__content {
         width: 35rem;
         }
-
-
 }
 
 
