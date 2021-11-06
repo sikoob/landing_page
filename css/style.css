@@ -1,24 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
 
+:root {
+    --color-primary: #d4a76a;
+    --color-lighter: #FFEAAA;
+}
+
 * {
     font-family: 'Lato', sans-serif;
     font-size: 62.5%;
 
-    @media (min-width: 100em) {             //Browserfenster min. 1600px breit
-        font-size: 75%;                    //font-size in HTML steuert alle rem-Angaben in Child --> wird alles reingezoomt
-      }
-    
-      @media (min-width: 133em) {
-          font-size: 80%;
-      }
-    
-      @media (min-width: 166em) {
-          font-size: 85%;
-      }
-    
-      @media (max-width:$breakpoint-xxs) {
-          font-size: 50%;
-      }
+   
 
     box-sizing: border-box;
     margin: 0;
@@ -100,7 +91,7 @@
 .content__heading {
     font-size: 8rem;
     font-weight: 900;
-    color: #FFEAAA;
+    color: var(--color-lighter);
     text-shadow: 0 0 1rem rgba(255,234,170,0.75);
     margin-bottom: 4rem;
 }
@@ -108,7 +99,7 @@
 .content__sub {
     font-size: 4rem;
     font-weight: 700;
-    color: #d4a76a;
+    color: var(--color-primary);
     text-shadow: 0 0 1rem rgba(212,167,106,0.75);
     text-align: center;
     margin-top: 3.125rem;
@@ -119,8 +110,8 @@
 .content__paragraph {
     font-size: 3rem;
     font-weight: 400;
-    color: #D4A76A;
-    text-shadow: 0 0 4rem rgba(212,167,106,1);
+    color: var(--color-primary);
+    text-shadow: 0 0 4rem rgb(212,167,106);
     margin-bottom: 4rem;
 }
 
@@ -132,7 +123,7 @@
     font-weight: 700;
     width: 15rem;
     height: 100%;
-    background-color: #D4A76A;
+    background-color: var(--color-primary);
     color: white;
     text-align: center;
     text-decoration: none;
@@ -146,7 +137,7 @@
 }
 
 .button:hover {
-    background-color: #FFEAAA;
+    background-color: var(--color-lighter);
     color: #123652;
 }
 
@@ -179,7 +170,7 @@
 .landing__navigation-selected {
     cursor: pointer;
     color: white;
-    font-size: 3rem;
+    font-size: 2.5rem;
     display: flex;
     justify-content: space-between;
     width: 11rem;
@@ -199,8 +190,8 @@
     margin: 0;
     padding: 0;
     background-color: white;
-    border: 1px solid #FFEAAA;
-    box-shadow: 0 0px 5px #FFEAAA;
+    border: 1px solid var(--color-lighter);
+    box-shadow: 0 0px 5px var(--color-lighter);
     border-radius: 0.5rem;
     display: none;
     position: absolute;
@@ -227,7 +218,7 @@
 }
 
 .landing__navigation-link:hover {
-    background-color: #D4A76A;
+    background-color: var(--color-primary);
     text-decoration: none;
     color: white;
 }
@@ -328,14 +319,6 @@
     animation-fill-mode: backwards;     /*damit Eigenschaft bvon 0% schon direkt angezeigt wird*/
 }
 
-@media (max-width: 36em) {
-    .submit-modal__content {
-    padding-left: 1rem;
-    background-image: none;
-    height: 27rem;
-    }
-}
-
 .submit-modal__close {
     display: block;
     position: absolute;
@@ -347,8 +330,8 @@
     color: transparent;
     filter: drop-shadow(0 0 0.5rem rgba(0,0,0,0.5));
     background-image:       /*zum Designen des x*/
-        linear-gradient(45deg, transparent 44.8%, #FFEAAA 45.2%, #FFEAAA 54.8%, transparent 55.2%),
-        linear-gradient(-45deg, transparent 44.8%, #FFEAAA 45.2%, #FFEAAA  54.8%, transparent 55.2%);
+        linear-gradient(45deg, transparent 44.8%, var(--color-lighter) 45.2%, var(--color-lighter) 54.8%, transparent 55.2%),
+        linear-gradient(-45deg, transparent 44.8%, var(--color-lighter) 45.2%, var(--color-lighter)  54.8%, transparent 55.2%);
 
     border-radius: 5rem;
     width: 1.5rem;
@@ -360,22 +343,23 @@
 }
 
 .submit-modal__heading {
-    color: #FFEAAA;
+    color: var(--color-lighter);
     font-size: 2.5rem;
     font-weight: 700;
-    text-shadow: 0 0 0.1rem #D4A76A;
+    text-shadow: 0 0 0.1rem var(--color-primary);
     margin-bottom: 0.35rem;
 }
 
 .submit-modal__paragraph{
-    color: #FFEAAA;
+    color: var(--color-lighter);
     font-size: 2rem;
     font-weight: 400;
-    text-shadow: 0 0 0.1rem #D4A76A;
+    text-shadow: 0 0 0.1rem var(--color-primary);
     margin-top: 2rem;
     margin-bottom: 0.35rem;
 }
 
+/*Keyframes*/
 
 @keyframes booking-modal--fade-in {
     0% {
@@ -393,6 +377,156 @@
     100% {
         transform: translate(0, 0);
     }
+}
+
+/*Media Queries*/
+
+@media (min-width: 166em) {
+    *{
+    font-size: 85%;
+    }
+}
+
+@media (min-width: 133em) {
+    *{
+    font-size: 80%;
+    }
+}
+
+@media (min-width: 100em) {
+    * {             
+    font-size: 75%; 
+    }                  
+}
+
+@media (max-width: 75rem) {
+    .landing__navigation {
+        top: 1rem;
+        right: 7rem;
+        max-width: 75rem;
+    }
+
+    .landing__navigation-selected{
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 62em) {
+    .landing__navigation {
+        top: 1rem;
+        right: 5rem;
+        max-width: 62rem;
+    }
+
+    .landing__navigation-link{
+        font-size: 1.5rem;
+        width: 10rem;
+    }
+
+    .landing__navigation-german::before{
+        width: 2rem;
+        height: 2rem;
+        margin-top: 0.4rem;
+        margin-left: 0.5rem;
+    }
+
+    .landing__navigation-english::before{
+        width: 2rem;
+        height: 2rem;
+        margin-top: 0.4rem;
+        margin-left: 0.5rem;
+    }
+
+    .content__heading {
+        font-size: 7rem;
+    }
+}
+
+@media (max-width: 48em) {
+    .content__heading {
+        margin-top: 3rem;
+    }
+
+    .content__sub {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .content__paragraph {
+        margin-bottom: 2rem;
+    }
+}
+
+
+@media (max-width: 36em) {
+    .content__heading {
+        font-size: 6rem;
+    }
+
+    .content__sub {
+        font-size: 3.5rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .content__paragraph{
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-shadow: 0 0 1rem rgb(212,167,106);
+    }
+
+    .submit-modal__content {
+    padding-left: 1rem;
+    height: 27rem;
+    }
+}
+
+@media (max-width:25em) {
+    *{
+    font-size: 50%;
+    }
+
+    .landing__navigation-selected{
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width:20em) {
+
+    .landing__navigation-selected{
+        font-size: 3.5rem;
+    }
+
+    .content__heading {
+        font-size: 4.5rem;
+    }
+
+    .content__sub {
+        font-size: 3rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .content__paragraph{
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .subscribe__form {
+        width: 15rem;
+        overflow: hidden;
+        font-size: 1.5rem;
+    }
+
+    .button {
+        width: 10rem;
+    }
+
+    .submit-modal__content {
+        width: 35rem;
+        }
+
+
 }
 
 
