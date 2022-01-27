@@ -91,6 +91,7 @@
 .content__heading {
     font-size: 8rem;
     font-weight: 900;
+    text-align: center;
     color: var(--color-lighter);
     text-shadow: 0 0 1rem rgba(255,234,170,0.75);
     margin-bottom: 4rem;
